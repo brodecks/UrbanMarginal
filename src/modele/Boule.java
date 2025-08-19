@@ -20,7 +20,6 @@ public class Boule extends Objet {
 	 * Tire d'une boule
 	 */
 	public void tireBoule() {
-		
 	}
 	
 }
