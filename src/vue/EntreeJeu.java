@@ -1,7 +1,5 @@
 package vue;
 
-import java.awt.EventQueue;
-
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
@@ -9,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import controle.Controle;
 
 public class EntreeJeu extends JFrame {
 
@@ -22,12 +21,13 @@ public class EntreeJeu extends JFrame {
 	 */
 	private JTextField txtIp;
 	
+	private Controle controle;
+	
 	/**
 	 * clic sur le bouton Start pour lancer le serveur
 	 */
 	private void btnStart_clic() {
-		(new Arene()).setVisible(true);
-		this.dispose();
+		this.controle.evenementEntreeJeu("serveur");
 	}
 	
 	/**
@@ -41,14 +41,13 @@ public class EntreeJeu extends JFrame {
 	 * clic sur le bouton Connect pour se connecter à un serveur
 	 */
 	private void btnConnect_clic() {
-		(new ChoixJoueur()).setVisible(true);
-		this.dispose();
+		this.controle.evenementEntreeJeu(this.txtIp.getText());
 	}	
 	
 	/**
 	 * Create the frame.
 	 */
-	public EntreeJeu() {
+	public EntreeJeu(Controle controle) {
 		setResizable(false);
 		setTitle("Urban Marginal");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -56,6 +55,7 @@ public class EntreeJeu extends JFrame {
 		contentPane = new JPanel();
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		this.controle = controle;
 		
 		JLabel lblStartAServer = new JLabel("Start a server :");
 		lblStartAServer.setBounds(10, 11, 94, 14);

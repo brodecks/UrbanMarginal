@@ -31,17 +31,22 @@ public class Joueur extends Objet {
 	 */
 	private JeuServeur jeuServeur ;
 	/**
-	 * numéro d'�tape dans l'animation (de la marche, touché ou mort)
+	 * numéro d'étape dans l'animation (de la marche, touché ou mort)
 	 */
 	private int etape ;
 	/**
 	 * la boule du joueur
 	 */
 	private Boule boule ;
-	
-	private int vie ;
-	
+	/**
+	* vie restante du joueur
+	*/
+	private int vie ; 
+	/**
+	* tourné vers la gauche (0) ou vers la droite (1)
+	*/
 	private int orientation ;
+	
 	/**
 	 * Constructeur
 	 */
@@ -105,6 +110,7 @@ public class Joueur extends Objet {
 	private Boolean toucheMur() {
 		return null;
 	}
+	
 	/**
 	 * vrai si la vie est à 0
 	 * @return true si vie = 0
