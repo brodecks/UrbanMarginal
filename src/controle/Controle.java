@@ -19,7 +19,6 @@ public class Controle implements AsyncResponse{
 	private Arene frmArene;
 	private ChoixJoueur frmChoixJoueur;
 	private String typeJeu;
-	
 	/**
 	 * Méthode de démarrage
 	 */
@@ -47,6 +46,12 @@ public class Controle implements AsyncResponse{
 			new ClientSocket(this,info, PORT);
 		}
 	}
+	
+	public void evenementChoixJoueur(String pseudo, int numPerso) {
+		frmChoixJoueur.setVisible(false);
+		Arene frmArene = new Arene();
+		frmArene.setVisible(true);
+	}
 
 	@Override
 	public void reception(Connection connection, String ordre, Object info) {
@@ -54,7 +59,7 @@ public class Controle implements AsyncResponse{
 		case "connexion":
 			if(this.typeJeu.equals("client")) {
 				this.frmEntreeJeu.dispose();
-				this.frmChoixJoueur = new ChoixJoueur();
+				this.frmChoixJoueur = new ChoixJoueur(this);
 				this.frmChoixJoueur.setVisible(true);
 				this.frmArene = new Arene();
 			}
