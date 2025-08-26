@@ -1,5 +1,6 @@
 package modele;
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Hashtable;
 import controle.Controle;
 import controle.global;
@@ -42,6 +43,36 @@ public class JeuServeur extends Jeu implements global{
 			this.lesJoueurs.get(connection).initPerso(pseudo, numPerso);
 			break;
 		}
+=======
+
+/**
+ * Gestion du jeu côté serveur
+ *
+ */
+public class JeuServeur extends Jeu {
+
+	/**
+	 * Collection de murs
+	 */
+	private ArrayList<Mur> lesMurs = new ArrayList<Mur>() ;
+	/**
+	 * Collection de joueurs
+	 */
+	private ArrayList<Joueur> lesJoueurs = new ArrayList<Joueur>() ;
+	
+	/**
+	 * Constructeur
+	 */
+	public JeuServeur() {
+	}
+	
+	@Override
+	public void connexion() {
+	}
+
+	@Override
+	public void reception() {
+>>>>>>> branch 'master' of https://github.com/brodecks/UrbanMarginal.git
 	}
 	
 	@Override
