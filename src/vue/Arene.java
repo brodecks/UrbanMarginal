@@ -68,9 +68,4 @@ public class Arene extends JFrame {
 		contentPane.add(lblFond);
 		
 	}
-
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> branch 'master' of https://github.com/brodecks/UrbanMarginal.git

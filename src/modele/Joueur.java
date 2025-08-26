@@ -1,12 +1,12 @@
 package modele;
 
-import controleur.Global;
+import controle.global;
 
 /**
  * Gestion des joueurs
  *
  */
-public class Joueur extends Objet implements Global {
+public class Joueur extends Objet implements global {
 
 	/**
 	 * pseudo saisi

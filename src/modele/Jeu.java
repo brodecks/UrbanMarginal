@@ -1,6 +1,6 @@
 package modele;
 
-import controleur.Controle;
+import controle.Controle;
 import outils.connexion.Connection;
 
 /**

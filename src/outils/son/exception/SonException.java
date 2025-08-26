@@ -1,9 +1,9 @@
-package outils.son.exceptions;
+package outils.son.exception;
 
 import java.io.Serializable;
 
 /**
- * Excpetion générale <br>
+ * Excpetion gï¿½nï¿½rale <br>
  */
 
 public class SonException

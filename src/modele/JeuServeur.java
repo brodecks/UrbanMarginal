@@ -3,15 +3,15 @@ package modele;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-import controleur.Controle;
-import controleur.Global;
+import controle.Controle;
+import controle.global;
 import outils.connexion.Connection;
 
 /**
  * Gestion du jeu côté serveur
  *
  */
-public class JeuServeur extends Jeu implements Global {
+public class JeuServeur extends Jeu implements global {
 
 	/**
 	 * Collection de murs

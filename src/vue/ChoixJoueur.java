@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import controleur.Controle;
+import controle.Controle;
 
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -196,14 +196,6 @@ public class ChoixJoueur extends JFrame {
 		this.numPerso = 1;
 		this.affichePerso();
 
-		// positionnement sur la zone de saisie
-		txtPseudo.requestFocus();
-
-	}
-}
-		this.numPerso = 1;
-		affichePerso();
-		
 		// positionnement sur la zone de saisie
 		txtPseudo.requestFocus();
 

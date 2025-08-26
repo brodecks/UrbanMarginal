@@ -20,10 +20,6 @@ public class Boule extends Objet {
 	 * Tire d'une boule
 	 */
 	public void tireBoule() {
-<<<<<<< HEAD
-=======
-		
->>>>>>> branch 'master' of https://github.com/brodecks/UrbanMarginal.git
 	}
 	
 }
