@@ -43,5 +43,4 @@ public class JeuClient extends Jeu {
 	public void envoi(String info) {
 		super.envoi(this.connection, info);
 	}
-
 }

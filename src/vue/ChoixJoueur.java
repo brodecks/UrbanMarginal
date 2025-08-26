@@ -201,3 +201,11 @@ public class ChoixJoueur extends JFrame {
 
 	}
 }
+		this.numPerso = 1;
+		affichePerso();
+		
+		// positionnement sur la zone de saisie
+		txtPseudo.requestFocus();
+
+	}
+}

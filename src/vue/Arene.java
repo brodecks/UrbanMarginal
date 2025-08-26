@@ -69,4 +69,8 @@ public class Arene extends JFrame {
 		
 	}
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> branch 'master' of https://github.com/brodecks/UrbanMarginal.git
