@@ -25,6 +25,7 @@ public class Arene extends JFrame implements global{
 	private JPanel contentPane;
 	
 	private JPanel jpnMurs;
+	private JPanel jpnJeu;
 	/**
 	 * Zone de saisie du t'chat
 	 */
@@ -46,6 +47,20 @@ public class Arene extends JFrame implements global{
 	public JPanel getjpnMurs() {
 		return jpnMurs;
 	}
+	
+	public void ajoutJLabelJeu(JLabel jeu) {
+		this.jpnJeu.add(jeu);
+		this.jpnJeu.repaint();
+	}
+	
+	public JPanel getjpnJeu() {
+		return jpnJeu;
+	}
+	public void setjpnJeu(JPanel info) {
+		this.jpnJeu.removeAll();
+		this.jpnJeu.add(info);
+		this.jpnJeu.repaint();
+	}
 	/**
 	 * Create the frame.
 	 */
@@ -61,6 +76,12 @@ public class Arene extends JFrame implements global{
 		contentPane = new JPanel();
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		jpnJeu = new JPanel();
+		jpnJeu.setBounds(0, 0, LARGEURARENE, HAUTEURARENE);
+		jpnJeu.setOpaque(false);
+		jpnJeu.setLayout(null);		
+		contentPane.add(jpnJeu);
 		
 		jpnMurs = new JPanel();
 		jpnMurs.setBounds(0, 0, LARGEURARENE, HAUTEURARENE);
