@@ -1,6 +1,8 @@
 package vue;
 
 import java.awt.Dimension;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.net.URL;
 
 import javax.swing.ImageIcon;
@@ -10,6 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
+import controle.Controle;
 import controle.global;
 
 /**
@@ -26,6 +30,7 @@ public class Arene extends JFrame implements global{
 	
 	private JPanel jpnMurs;
 	private JPanel jpnJeu;
+	private Controle controle;
 	/**
 	 * Zone de saisie du t'chat
 	 */
@@ -61,10 +66,28 @@ public class Arene extends JFrame implements global{
 		this.jpnJeu.add(info);
 		this.jpnJeu.repaint();
 	}
+	
+	public String gettxtChat() {
+		return txtChat.getText();
+	}
+	public void settxtChat(String chat) {
+		this.txtChat.setText(chat);
+	}
+	public void ajoutChat(String phrase) {
+		this.txtChat.setText(this.txtChat.getText()+phrase+"\r\n");
+	}
+	public void txtSaisie_KeyPressed(KeyEvent e) {
+		if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+			if(!txtSaisie.getText().equals("")) {
+				this.controle.evenementArene(this.txtSaisie.getText());
+				this.txtSaisie.setText("");
+			}
+		}
+	}
 	/**
 	 * Create the frame.
 	 */
-	public Arene() {
+	public Arene(Controle controle) {
 		// Dimension de la frame en fonction de son contenu
 		this.getContentPane().setPreferredSize(new Dimension(LARGEURARENE, HAUTEURARENE + 25 + 140));
 	    this.pack();
@@ -90,6 +113,12 @@ public class Arene extends JFrame implements global{
 		contentPane.add(jpnMurs);
 	
 		txtSaisie = new JTextField();
+		txtSaisie.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				txtSaisie_KeyPressed(e);
+			}
+		});
 		txtSaisie.setBounds(0, 600, 800, 25);
 		contentPane.add(txtSaisie);
 		txtSaisie.setColumns(10);
@@ -108,6 +137,8 @@ public class Arene extends JFrame implements global{
 		lblFond.setIcon(new ImageIcon(resource));		
 		lblFond.setBounds(0, 0, 800, 600);
 		contentPane.add(lblFond);
+		
+		this.controle = controle;
 		
 	}
 }

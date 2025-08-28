@@ -155,4 +155,16 @@ public interface global {
 	int GAUCHE = 0;
 	
 	String MODIFPANELJEU = "modif panel jeu";
+	/**
+	 * ordre pour demander d'ajouter une phrase au tchat
+	 */
+	String CHAT = "chat";
+	/**
+	 * ordre pour ajouter une phrase dans l'arène du serveur
+	 */
+	String AJOUTPHRASE = "ajout phrase";
+	/**
+	 * ordre pour modifier le contenu du tchat dans l'arène du client
+	 */
+	String MODIFCHAT = "modif chat";
 }
