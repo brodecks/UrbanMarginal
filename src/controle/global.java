@@ -98,7 +98,7 @@ public interface global {
 	 * Message "pseudo" envoyé pour la création d'un joueur
 	 */
 	String PSEUDO = "pseudo";
-	/**
+		/**
 	 * vie de départ pour tous les joueurs
 	 */
 	int MAXVIE = 10 ;
@@ -141,6 +141,7 @@ public interface global {
 	 * Message "serveur" pour la création d'un serveur
 	 */
 	String SERVEUR = "serveur";
+	String CLIENT = "Client";
 	/**
 	 * ordre pour ajouter un mur dans l'arène du serveur
 	 */
@@ -167,4 +168,6 @@ public interface global {
 	 * ordre pour modifier le contenu du tchat dans l'arène du client
 	 */
 	String MODIFCHAT = "modif chat";
+	
+	String MESSAGECONNEXION = " vient se connecter***";
 }

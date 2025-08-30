@@ -39,6 +39,8 @@ public class Arene extends JFrame implements global{
 	 * Zone d'affichage du t'chat
 	 */
 	private JTextArea txtChat ;
+	
+	private Boolean client;
 
 	public void ajoutMurs(Object mur) {
 		jpnMurs.add((JLabel)mur);
@@ -72,9 +74,11 @@ public class Arene extends JFrame implements global{
 	}
 	public void settxtChat(String chat) {
 		this.txtChat.setText(chat);
+		this.txtChat.setCaretPosition(this.txtChat.getDocument().getLength());
 	}
 	public void ajoutChat(String phrase) {
 		this.txtChat.setText(this.txtChat.getText()+phrase+"\r\n");
+		this.txtChat.setCaretPosition(this.txtChat.getDocument().getLength());
 	}
 	public void txtSaisie_KeyPressed(KeyEvent e) {
 		if(e.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -87,7 +91,8 @@ public class Arene extends JFrame implements global{
 	/**
 	 * Create the frame.
 	 */
-	public Arene(Controle controle) {
+	public Arene(Controle controle, String typeJeu) {
+		this.client = typeJeu.equals(CLIENT);
 		// Dimension de la frame en fonction de son contenu
 		this.getContentPane().setPreferredSize(new Dimension(LARGEURARENE, HAUTEURARENE + 25 + 140));
 	    this.pack();
@@ -112,23 +117,25 @@ public class Arene extends JFrame implements global{
 		jpnMurs.setLayout(null);
 		contentPane.add(jpnMurs);
 	
-		txtSaisie = new JTextField();
-		txtSaisie.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyPressed(KeyEvent e) {
-				txtSaisie_KeyPressed(e);
-			}
-		});
-		txtSaisie.setBounds(0, 600, 800, 25);
-		contentPane.add(txtSaisie);
-		txtSaisie.setColumns(10);
-		
+		if(this.client) {
+			txtSaisie = new JTextField();
+			txtSaisie.addKeyListener(new KeyAdapter() {
+				@Override
+				public void keyPressed(KeyEvent e) {
+					txtSaisie_KeyPressed(e);
+				}
+			});
+			txtSaisie.setBounds(0, 600, 800, 25);
+			contentPane.add(txtSaisie);
+			txtSaisie.setColumns(10);
+		}
 		JScrollPane jspChat = new JScrollPane();
 		jspChat.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		jspChat.setBounds(0, 625, 800, 140);
 		contentPane.add(jspChat);
 		
 		txtChat = new JTextArea();
+		txtChat.setEditable(false);
 		jspChat.setViewportView(txtChat);
 		
 		JLabel lblFond = new JLabel("");
