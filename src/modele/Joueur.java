@@ -1,6 +1,7 @@
 package modele;
 
 import java.awt.Font;
+import java.awt.event.KeyEvent;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -109,7 +110,24 @@ public class Joueur extends Objet implements global {
 	/**
 	 * Gère une action reçue et qu'il faut afficher (déplacement, tire de boule...)
 	 */
-	public void action() {
+	public void action(Integer action, Collection<Joueur> lesJoueurs, ArrayList <Mur> lesMurs) {
+		switch(action) {
+		case KeyEvent.VK_LEFT:
+			orientation = GAUCHE;
+			posX -= PAS;
+			break;
+		case KeyEvent.VK_RIGHT:
+			orientation = DROITE;
+			posX += PAS;
+			break;
+		case KeyEvent.VK_UP:
+			posY -= PAS;
+			break;
+		case KeyEvent.VK_DOWN:
+			posY += PAS;
+			break;
+		}
+		this.affiche(MARCHE, this.etape);
 	}
 
 	/**

@@ -67,6 +67,7 @@ public class Arene extends JFrame implements global{
 		this.jpnJeu.removeAll();
 		this.jpnJeu.add(info);
 		this.jpnJeu.repaint();
+		this.contentPane.requestFocus();
 	}
 	
 	public String gettxtChat() {
@@ -86,6 +87,21 @@ public class Arene extends JFrame implements global{
 				this.controle.evenementArene(this.txtSaisie.getText());
 				this.txtSaisie.setText("");
 			}
+			this.contentPane.requestFocus();
+		}
+	}
+	public void contentPane_KeyPressed(KeyEvent e) {
+		int touche = -1;
+		switch(e.getKeyCode()) {
+		case KeyEvent.VK_RIGHT:
+		case KeyEvent.VK_LEFT:
+		case KeyEvent.VK_UP:
+		case KeyEvent.VK_DOWN:
+			touche = e.getKeyCode();
+			break;
+		}
+		if(touche != -1) {
+			this.controle.evenementArene(touche);
 		}
 	}
 	/**
@@ -102,13 +118,19 @@ public class Arene extends JFrame implements global{
 		setTitle("Arena");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		contentPane = new JPanel();
+		contentPane.addKeyListener(new KeyAdapter() {
+			public void keyPressed(KeyEvent e) {
+				contentPane_KeyPressed(e);
+			}
+		});
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		jpnJeu = new JPanel();
 		jpnJeu.setBounds(0, 0, LARGEURARENE, HAUTEURARENE);
 		jpnJeu.setOpaque(false);
-		jpnJeu.setLayout(null);		
+		jpnJeu.setLayout(null);
+		jpnJeu.requestFocus();
 		contentPane.add(jpnJeu);
 		
 		jpnMurs = new JPanel();
@@ -135,6 +157,11 @@ public class Arene extends JFrame implements global{
 		contentPane.add(jspChat);
 		
 		txtChat = new JTextArea();
+		txtChat.addKeyListener(new KeyAdapter() {
+			public void keyPressed(KeyEvent e) {
+				contentPane_KeyPressed(e);
+			}
+		});
 		txtChat.setEditable(false);
 		jspChat.setViewportView(txtChat);
 		

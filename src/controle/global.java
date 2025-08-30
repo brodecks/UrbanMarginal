@@ -154,6 +154,7 @@ public interface global {
 	String AJOUTJLABELJEU = "ajout jlabel jeu";
 	int DROITE = 1;
 	int GAUCHE = 0;
+	int PAS = 10;
 	
 	String MODIFPANELJEU = "modif panel jeu";
 	/**
@@ -170,4 +171,5 @@ public interface global {
 	String MODIFCHAT = "modif chat";
 	
 	String MESSAGECONNEXION = " vient se connecter***";
+	String ACTION = "action";
 }
